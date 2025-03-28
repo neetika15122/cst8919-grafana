@@ -36,7 +36,14 @@ This lab guides you through the installation of Grafana on an Ubuntu machine, se
      ```bash
      sudo systemctl status grafana-server
      ```
+     ![alt text](grafana-status.png)
+
    - Enable Port 3000 to access Grafana:  
+
+     ![alt text](<port-3000 added.png>)
+
+     ![alt text](grafana-server.png)
+
      Ensure that you can access the server's Grafana interface.
 
 3. **Connect Grafana to Azure Monitor**  
@@ -49,5 +56,24 @@ This lab guides you through the installation of Grafana on an Ubuntu machine, se
      sudo systemctl start grafana-server
      ```
    - Open Grafana in a web browser (usually `http://<your-server-ip>:3000`) and log in with the default credentials (`admin/admin`).
+     ![alt text](grafana-login.png)
+
    - Navigate to `Configuration > Data Sources` and add "Azure Monitor".
    - Authenticate using Managed Identity and test the connection.
+   ![alt text](grafana-azure-datamonitor.png)
+   - Add the subscription and test it.
+   ![alt text](added-subscription.png)
+
+4. **Create a dashboard in Grafana**
+   - Click on the “+” icon on the left sidebar and select “Dashboard.”
+   - Click on “Add new panel.”
+   - From the data source dropdown, select “Azure Monitor.”
+   - Choose the relevant metrics that you would like to visualize, such as CPU usage, memory usage, network I/O, etc.
+   - Customize the panel with thresholds, colors, and labels.
+   - Save the panel and the dashboard.
+
+   ![alt text](Grafana-metrics.png)
+
+# Conclusion
+
+Through the installation and configuration of Grafana on an Ubuntu server, this lab effectively illustrated how to enable real-time performance monitoring via Azure Monitor. Following the instructions, we combined Grafana with Azure Monitor to display important metrics like CPU, RAM, and network input/output in a dashboard that could be customized. The lab emphasized the significance of managed identities and system configuration for safe and smooth Azure data integration. In addition to increasing system visibility, the development of a dynamic, real-time dashboard gives administrators useful information for troubleshooting and performance optimization. A solid basis for efficient server monitoring and management in a production setting is established by this practical experience with Grafana and Azure Monitor.
